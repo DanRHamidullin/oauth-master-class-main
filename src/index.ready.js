@@ -1,3 +1,5 @@
+import YaAuthSuggest from "express/lib/application";
+
 const authorize = ({
   default_avatar_id: defaultAvatarId,
   display_name: displayName,
