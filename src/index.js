@@ -44,6 +44,30 @@ window.onload = () => {
 
   };
   document.getElementById("button").onclick = () => {
-    // TODO button
+
+    YaAuthSuggest.init({
+         client_id: '9a9e07e0730a4cc6a380e6a3920b9f6d',
+         response_type: 'token',
+         redirect_uri: 'https://oauth-master-class-main-dj8n.vercel.app/token.html'
+      },
+      'https://oauth-master-class-main-dj8n.vercel.app',
+      {
+          parentId: "buttonContainer",
+          view: "button",
+          buttonTheme: "red",
+          buttonSize: "m",
+          buttonBorderRadius: 40,
+      }
+   )
+
+        .then(({ handler }) => handler())
+        .then(async (data) => {
+          const result = await fetchYandexData(data.access_token);
+
+          authorize(result);
+
+          console.log(result, data);
+      })
+      .catch((error) => console.log("Что-то пошло не так: ", error));
   };
 };
