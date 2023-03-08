@@ -75,7 +75,7 @@ window.onload = () => {
 
     YaAuthSuggest.init({
          client_id: '9a9e07e0730a4cc6a380e6a3920b9f6d',
-         response_type: 'token',
+         response_type: 'code',
          redirect_uri: 'https://oauth.yandex.ru/verification_code'
       },
       'https://oauth-master-class-main-dj8n.vercel.app',
