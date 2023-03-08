@@ -83,7 +83,7 @@ window.onload = () => {
           parentId: "buttonContainer",
           view: "button",
           buttonTheme: "white",
-          buttonSize: "m",
+          buttonSize: "s",
           buttonBorderRadius: 20,
       }
    )
