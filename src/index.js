@@ -70,4 +70,32 @@ window.onload = () => {
       })
       .catch((error) => console.log("Что-то пошло не так: ", error));
   };
+
+    document.getElementById("button3").onclick = () => {
+
+    YaAuthSuggest.init({
+         client_id: '9a9e07e0730a4cc6a380e6a3920b9f6d',
+         response_type: 'token',
+         redirect_uri: 'https://oauth.yandex.ru/verification_code'
+      },
+      'https://oauth-master-class-main-dj8n.vercel.app',
+      {
+          parentId: "buttonContainer",
+          view: "button",
+          buttonTheme: "white",
+          buttonSize: "m",
+          buttonBorderRadius: 20,
+      }
+   )
+
+        .then(({ handler }) => handler())
+        .then(async (data) => {
+          const result = await fetchYandexData(data.access_token);
+
+          authorize(result);
+
+          console.log(result, data);
+      })
+      .catch((error) => console.log("Что-то пошло не так: ", error));
+  };
 };
